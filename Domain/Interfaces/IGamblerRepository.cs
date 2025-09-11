@@ -1,7 +1,6 @@
-﻿using Ruleta.Domain.Dto;
 using Ruleta.Domain.Entities;
 
-namespace Ruleta.Domain.Interface
+namespace Ruleta.Domain.Interfaces
 {
     public interface IGamblerRepository
     {

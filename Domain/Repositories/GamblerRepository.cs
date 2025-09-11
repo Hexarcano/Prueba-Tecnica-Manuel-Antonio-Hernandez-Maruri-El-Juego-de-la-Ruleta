@@ -1,9 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Ruleta.Domain.Dto;
+using Microsoft.EntityFrameworkCore;
 using Ruleta.Domain.Entities;
-using Ruleta.Domain.Interface;
+using Ruleta.Domain.Interfaces;
 using Ruleta.Infraestructure.Context;
-using System;
 
 namespace Ruleta.Domain.Repository
 {
