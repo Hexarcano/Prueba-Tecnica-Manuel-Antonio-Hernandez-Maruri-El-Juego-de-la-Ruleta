@@ -20,6 +20,7 @@ builder.Services.AddSwaggerGen();
 
 // Register application services
 builder.Services.AddScoped<IGamblerService, GamblerService>();
+builder.Services.AddScoped<IBetService, BetService>();
 builder.Services.AddScoped<IGamblerRepository, GamblerRepository>();
 
 var app = builder.Build();
