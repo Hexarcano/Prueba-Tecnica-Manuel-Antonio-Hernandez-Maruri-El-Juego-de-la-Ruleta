@@ -80,21 +80,82 @@ function showMessage(text: string, type: 'success' | 'error'): void {
 </script>
 
 <template>
-  <div>
-    <button @click="handleSaveFunds" :disabled="isLoading || !gamblerStore.gambler.name.trim()">
+  <div class="save-funds-container">
+    <button @click="handleSaveFunds" :disabled="isLoading || !gamblerStore.gambler.name.trim()" class="save-funds-button">
       {{ isLoading ? 'Guardando...' : 'Guardar' }}
     </button>
 
-    <div v-if="message" :class="messageType">
+    <div v-if="message" :class="messageType" class="save-funds-message">
       {{ message }}
-    </div>
-
-    <div v-if="gamblerStore.gambler.name">
-      <p><strong>Jugador:</strong> {{ gamblerStore.gambler.name }}</p>
-      <p v-if="gamblerStore.isIdentified">
-        <strong>Fondos iniciales:</strong> ${{ gamblerStore.gambler.initialFunds }}
-      </p>
-      <p><strong>Fondos actuales:</strong> ${{ gamblerStore.currentFunds }}</p>
     </div>
   </div>
 </template>
+
+<style scoped>
+.save-funds-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center; /* Reverted to center */
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  width: 100%;
+  max-width: 350px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+.save-funds-button {
+  padding: 12px 20px;
+  background-color: #6c757d; /* Gray for neutral action */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.save-funds-button:hover:not(:disabled) {
+  background-color: #5a6268;
+}
+
+.save-funds-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.save-funds-message {
+  margin-top: 10px;
+  font-size: 0.95em;
+  text-align: center;
+}
+
+.success {
+  color: #4CAF50;
+}
+
+.error {
+  color: #f44336;
+}
+
+.gambler-info {
+  background-color: #e9ecef;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 0.9em;
+  color: #495057;
+}
+
+.gambler-info p {
+  margin: 5px 0;
+}
+
+.gambler-info strong {
+  color: #343a40;
+}
+</style>

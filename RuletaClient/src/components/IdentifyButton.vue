@@ -67,12 +67,58 @@ function showMessage(text: string, type: 'success' | 'error'): void {
 </script>
 
 <template>
-  <div>
-    <button @click="handleIdentify" :disabled="isLoading || !gamblerStore.gambler.name.trim()">
+  <div class="identify-button-container">
+    <button @click="handleIdentify" :disabled="isLoading || !gamblerStore.gambler.name.trim()" class="identify-button">
       {{ isLoading ? 'Identificando...' : 'Identificarse' }}
     </button>
-    <div v-if="message" :class="messageType">
+    <div v-if="message" :class="messageType" class="identify-message">
       {{ message }}
     </div>
   </div>
 </template>
+
+<style scoped>
+.identify-button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  max-width: 300px;
+}
+
+.identify-button {
+  padding: 10px 15px;
+  background-color: #007bff; /* Blue */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.identify-button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.identify-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.identify-message {
+  margin-top: 10px;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.success {
+  color: #4CAF50;
+}
+
+.error {
+  color: #f44336;
+}
+</style>
