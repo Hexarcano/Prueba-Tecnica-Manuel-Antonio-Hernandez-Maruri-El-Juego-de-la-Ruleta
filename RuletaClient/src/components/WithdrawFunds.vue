@@ -6,6 +6,7 @@
       v-model.number="funds"
       type="number"
       min="0"
+      max="99"
       step="0.01"
       :max="gamblerStore.currentFunds"
       placeholder="Ingrese cantidad"

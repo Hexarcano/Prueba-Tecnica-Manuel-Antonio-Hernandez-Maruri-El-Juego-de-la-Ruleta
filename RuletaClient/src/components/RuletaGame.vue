@@ -94,6 +94,7 @@ function cleanBet() {
         v-model.number="currentBet.bet"
         placeholder="0.00"
         min="1"
+        max="99"
         @input="cleanBet"
         class="bet-input"
       />
