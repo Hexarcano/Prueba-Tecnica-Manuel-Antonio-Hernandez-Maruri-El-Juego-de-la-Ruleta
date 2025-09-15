@@ -59,7 +59,7 @@ async function handleSaveFunds(): Promise<void> {
     if (response.success) {
       showMessage('Datos guardados correctamente', 'success')
     } else {
-      showMessage('Error al guardar fondos', 'error')
+      showMessage(response.message  ?? 'Error al guardar fondos', 'error')
     }
   } catch (error) {
     console.error('Error:', error)
