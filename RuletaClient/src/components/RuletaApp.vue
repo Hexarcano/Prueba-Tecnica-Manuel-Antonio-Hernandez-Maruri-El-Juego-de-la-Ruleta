@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import CurrentFunds from './CurrentFunds.vue'
-import BetDisplay from './BetDisplay.vue'
+
 import GamblerNameInput from './GamblerNameInput.vue'
 import IdentifyButton from './IdentifyButton.vue'
 import SaveFunds from './SaveFunds.vue'
@@ -13,7 +13,6 @@ import WithdrawFunds from './WithdrawFunds.vue'
   <div class="ruleta-app-container">
     <div class="funds-bet-row">
       <CurrentFunds />
-      <BetDisplay />
     </div>
     <GamblerNameInput />
     <IdentifyButton />
