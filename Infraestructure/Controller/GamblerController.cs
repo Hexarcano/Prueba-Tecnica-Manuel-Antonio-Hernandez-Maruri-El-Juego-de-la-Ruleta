@@ -27,7 +27,7 @@ namespace Ruleta.Infraestructure.Controller
                 GamblerResponse response = await _gamblerService.GetGambler(name);
                 return Ok(response);
             }
-            catch (Exception ex)
+            catch (KeyNotFoundException ex)
             {
                 return NotFound(ex.Message);
             }
@@ -43,7 +43,7 @@ namespace Ruleta.Infraestructure.Controller
 
                 return Ok(response);
             }
-            catch (Exception ex)
+            catch (ArgumentNullException ex)
             {
                 return BadRequest(ex.Message);
             }
@@ -68,11 +68,19 @@ namespace Ruleta.Infraestructure.Controller
                     return Ok(response);
                 }
 
-                return BadRequest("Invalid transaction type");
+                return BadRequest("Tipo de transacción no válida");
             }
-            catch (Exception ex)
+            catch (KeyNotFoundException ex)
             {
                 return NotFound(ex.Message);
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
 

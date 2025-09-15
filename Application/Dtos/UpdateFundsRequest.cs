@@ -4,7 +4,7 @@ namespace Ruleta.Application.Dtos
 {
     public class UpdateFundsRequest
     {
-        [Range(0.01, double.MaxValue, ErrorMessage = "Funds must be greater than 0")]
+        [Range(0.01, double.MaxValue, ErrorMessage = "Los fondos deben ser mayores a 0")]
         public decimal Funds { get; set; }
         public ETransaction Transaction { get; set; }
     }

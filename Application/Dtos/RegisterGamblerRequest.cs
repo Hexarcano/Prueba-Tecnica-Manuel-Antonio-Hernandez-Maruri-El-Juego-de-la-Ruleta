@@ -4,11 +4,11 @@ namespace Ruleta.Application.Dtos
 {
     public class RegisterGamblerRequest
     {
-        [Required(ErrorMessage = "Name is required")]
-        [StringLength(maximumLength: 100, MinimumLength = 1, ErrorMessage = "Name must be between 1 and 100 characters long")]
+        [Required(ErrorMessage = "El nombre es requerido")]
+        [StringLength(maximumLength: 100, MinimumLength = 1, ErrorMessage = "El nombre debe tener entre 1 y 100 caracteres")]
         public string Name { get; set; } = string.Empty;
 
-        [Range(0, double.MaxValue, ErrorMessage = "Funds must be greater than or equal to 0")]
+        [Range(0, double.MaxValue, ErrorMessage = "Los fondos deben ser mayores o iguales a 0")]
         public decimal? Funds { get; set; }
     }
 }

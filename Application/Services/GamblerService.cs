@@ -20,7 +20,7 @@ namespace Ruleta.Application.Services
 
             if (gambler == null)
             {
-                throw new Exception("Gambler not found");
+                throw new KeyNotFoundException("Jugador no encontrado");
             }
 
             return new GamblerResponse
@@ -38,7 +38,7 @@ namespace Ruleta.Application.Services
             {
                 if (request.Funds == null)
                 {
-                    throw new Exception("Funds must be defined.");
+                    throw new ArgumentNullException(nameof(request.Funds), "Los fondos deben ser definidos.");
                 }
 
                 UpdateFundsRequest updateFundsRequest = new UpdateFundsRequest
@@ -70,12 +70,12 @@ namespace Ruleta.Application.Services
 
             if (gambler == null)
             {
-                throw new Exception("Gambler not found");
+                throw new KeyNotFoundException("Jugador no encontrado");
             }
 
             if (request.Funds <= 0)
             {
-                throw new Exception("Funds must be positive");
+                throw new ArgumentOutOfRangeException(nameof(request.Funds), "Los fondos deben ser positivos");
             }
 
             gambler.Funds += request.Funds;
@@ -95,17 +95,17 @@ namespace Ruleta.Application.Services
 
             if (gambler == null)
             {
-                throw new Exception("Gambler not found");
+                throw new KeyNotFoundException("Jugador no encontrado");
             }
 
             if (request.Funds <= 0)
             {
-                throw new Exception("Funds must be positive");
+                throw new ArgumentOutOfRangeException(nameof(request.Funds), "Los fondos deben ser positivos");
             }
 
             if (request.Funds > gambler.Funds)
             {
-                throw new Exception($"Insufficient Funds. You have: {gambler.Funds}, and you requested to withdraw: {request.Funds}.");
+                throw new InvalidOperationException($"Fondos insuficientes. Tienes: {gambler.Funds}, y solicitaste retirar: {request.Funds}.");
             }
 
             gambler.Funds -= request.Funds;

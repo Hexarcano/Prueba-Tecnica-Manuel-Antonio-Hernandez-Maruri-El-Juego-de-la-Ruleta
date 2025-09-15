@@ -8,7 +8,7 @@ namespace Ruleta.Domain.Entities
         [Key]
         public required string Name { get; set; }
 
-        [Range(0, double.MaxValue, ErrorMessage = "Funds must be positive.")]
+        [Range(0, double.MaxValue, ErrorMessage = "Los fondos deben ser positivos.")]
         public decimal? Funds { get; set; }
     }
 }
