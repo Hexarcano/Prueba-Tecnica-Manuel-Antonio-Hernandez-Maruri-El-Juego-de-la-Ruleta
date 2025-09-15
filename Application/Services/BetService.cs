@@ -19,11 +19,11 @@ namespace Ruleta.Application.Services
 
             int generatedNumber = random.Next(37);
             var generatedColor = colors.GetValue(random.Next(colors.Length));
-            var generatedCondition = conditions.GetValue(random.Next(colors.Length));
+            var generatedCondition = conditions.GetValue(random.Next(conditions.Length));
 
             response.GeneratedNumber = generatedNumber;
-            response.GeneratedColor = generatedColor!.ToString()!;
-            response.GeneratedCondition = generatedCondition!.ToString()!;
+            response.GeneratedColor = (EColor)generatedColor!;
+            response.GeneratedCondition = (ECondition)generatedCondition!;
 
             if (request.ChosenNumber == generatedNumber && request.ChosenColor.Equals(generatedColor))
             {
